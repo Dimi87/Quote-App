@@ -1,23 +1,17 @@
-const btn = document.querySelector("#quote");
-btn.addEventListener("click", function() {
-
-//const zitat "Make it work!";
-
-//todo: fetch
-
-fetch("https://quote-garden.herokuapp.com/api/v3/quotes/random")
-.then((response) => {
-    if(response.ok) {
+document.querySelector("#load-quote").addEventListener("click", function () {
+  fetch("https://quote-garden.herokuapp.com/api/v3/quotes/random")
+    .then((response) => {
+      if (response.ok) {
         return response.json();
-    }
-}).then(data => {
-    const zitat = data.data[0];
-    const p = document.querySelector("#zitat");
-    p.textContent = zitat.quoteText;
-    
-})
-//const p = document.querySelector("#zitat");
-//p.textContent = zitat;
+      } else {
+        alert("Der Teufel steck im Detail. ;)");
+      }
+    })
+    .then((data) => {
+      randomQuote.textContent = data.data[0].quoteText;
+      quoteAuthor.textContent = data.data[0].quoteAuthor;
+    });
 
-
+  const randomQuote = document.querySelector("#random-quote");
+  const quoteAuthor = document.querySelector("#author");
 });
