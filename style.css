@@ -28,8 +28,6 @@ body {
 .head-container {
   padding: 5rem;
   background-color: var(--background-color-header);
-  _display: flex;
-  _flex-wrap: wrap;
 }
 
 .quote-button:hover {
@@ -39,7 +37,6 @@ body {
 }
 
 .quote-button {
-  _justify-content: flex-end;
   margin-right: 10rem;
   margin-top: 2rem;
   font-size: 20px;
